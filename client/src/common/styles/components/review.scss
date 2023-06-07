@@ -1,0 +1,49 @@
+@use "../base/variables";
+@use "../utils/breakpoint-mixins" as *;
+
+.review {
+    // border: 1px solid black;
+    margin: 1em 0;
+    padding: 0.75em 0.5em;
+    border-bottom: 2px solid variables.$light-grey;
+
+}
+
+.review__header {
+    .review__short-summary {
+        display: flex;
+        align-items: center;
+
+        .ratings--container {
+            font-size: 1.15rem;
+            margin-right: 0.5em;
+        }
+    }
+
+}
+
+.review__details {
+    display: flex;
+    align-items: center;
+
+}
+
+.review__details__author {
+    font-size: 1.15rem;
+    margin-right: 1em;
+    font-weight: 500;
+}
+
+.review__details__date {
+    margin-left: auto;
+    margin-right: 5%;
+
+    @include sm {
+        margin-right: 0;
+    }
+}
+
+.review__description {
+    margin: 0.5em 0;
+    font-size: 1.1rem;
+}

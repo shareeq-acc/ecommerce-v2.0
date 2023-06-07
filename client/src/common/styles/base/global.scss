@@ -1,0 +1,39 @@
+@use "../utils/breakpoint-mixins" as *;
+
+.container--padding {
+    padding: 0.5rem 3%;
+
+    @include sm {
+        padding: 0.5rem 4%;
+    }
+
+    @include md {
+        padding: 0.5rem 5%;
+    }
+
+    @include lg {
+        padding: 0.75rem 7%;
+    }
+
+
+}
+
+.section--margin {
+    margin-top: 2rem;
+}
+
+// .individual-section {
+//     margin-top: 2rem;
+//     padding: 1em 20%;
+// }
+// .section-top-padding {
+//     padding-top: 1em;
+// }
+
+// .section-top-padding-lg {
+//     padding-top: 2em;
+// }
+
+.white-bg {
+    background: white !important;
+}

@@ -1,0 +1,68 @@
+@use "../base/variables";
+
+@mixin search-input($borderColor: transparent, $bg: white, $color: black) {
+    outline: none;
+    padding: 0.4em 0.8em;
+    font-size: 1.1rem;
+    border: 1px solid #{$borderColor};
+    background: $bg;
+    // font-size: variables.$base-font-size * 1.2;
+    border-radius: variables.$radius-md;
+    color: $color;
+
+    &::placeholder {
+        font-family: variables.$base-font;
+        font-weight: 500;
+    }
+
+    @if $bg ==white {
+        &::placeholder {
+            color: black;
+        }
+    }
+
+    @else {
+        &::placeholder {
+            color: white;
+        }
+    }
+
+}
+
+@mixin text-underline($color: variables.$base-color) {
+    position: relative;
+    padding-bottom: 0.75em;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color;
+    }
+}
+
+@mixin sidebar-responsive($position: right, $background: white, $shadow: variables.$shadow-md) {
+    position: fixed;
+    top: 0%;
+    padding: 1em;
+    padding-top: 3rem;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background-color: $background;
+    box-shadow: $shadow;
+    z-index: 100;
+
+    @if $position ==right {
+        right: 0% !important;
+    }
+
+    @else {
+        left: 0% !important;
+
+    }
+
+}   

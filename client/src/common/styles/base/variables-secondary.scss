@@ -1,0 +1,49 @@
+$swiper-theme-color: #FF7800;
+
+// Fonts
+$font-logo: 'Pacifico', cursive;
+$font-primary: 'Quicksand', sans-serif;
+$font-secondary: 'Poppins', sans-serif;
+$font-headline: 'Acme', sans-serif;
+
+// Colors
+// $base-color: #06d7b7;
+// $base-color: #FF7800;
+$base-color: #E90674;
+
+$primary-pink: #E90674;
+$primary-cyan: #00adb5;
+$primary-black: #141b25;
+$primary-orange: #FF7800;
+$primary-green: #0EC367;
+$primary-grey: #e6e6e6;
+$primary-blueGreen: #06d7b7;
+$primary-light-grey: #F4F2F2;
+$primary-gold: #faca51;
+$faded-grey: #565959;
+$primary-light-bg: #ffffffa8;
+$primary-dark-grey :rgb(55, 65, 81);
+$secondary-orange: #fe892a;
+$secondary-grey: rgb(209, 213, 219);
+
+// Shadows
+$primary-box-shadow: rgba(149, 157, 165, 0.2) 0 0.5rem 1.5rem;
+$secondary-card-shadow: 0 0.1rem 1rem rgb(0 0 0 / 10%);
+
+// Padding
+$primary-btn-padding: 0.3rem 0.75rem;
+
+// BreakPoints
+$breakpoints: (
+    "xs": 0,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 1024px,
+    "xl": 1200px,
+    "xxl": 1400px,
+);
+
+// Radius
+$radius-sm: 7px;
+$radius-md: 15px;
+$radius-lg: 50%;

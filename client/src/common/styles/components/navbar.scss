@@ -1,0 +1,219 @@
+@use "../utils/breakpoint-mixins" as *;
+@use "../utils/mixins" as *;
+@use "../base/variables";
+
+.nav-header {
+    margin-bottom: 2rem;
+    margin-top: 0.5em;
+    background: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.nav--sticky {
+    position: sticky;
+    top: 0;
+    box-shadow: variables.$shadow-md;
+    z-index: 10;
+    // width: 100%;
+}
+
+.main-nav {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: auto auto;
+    justify-items: baseline;
+    align-items: center;
+
+    @include md {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.main-nav__logo {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    font-size: 2rem;
+    color: variables.$base-color;
+    font-family: variables.$logo-font;
+    font-size: 2rem;
+}
+
+.main-nav__toggle-btn {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.4rem;
+    grid-column: 10;
+    grid-row: 1;
+
+    @include md {
+        display: none;
+    }
+}
+
+// -- Navbar Search Input  --
+.main-nav__search-form {
+    position: relative;
+    margin: 0.5rem 0 0 0;
+    width: 100%;
+    grid-column: 1 / 10;
+    grid-row: 2;
+
+
+    @include md {
+        width: 35%;
+        margin: 0 auto;
+    }
+
+    @include lg {
+        width: 30%;
+    }
+}
+
+.main-nav__form__search-input {
+    padding-right: 2rem !important;
+    width: 100% !important;
+    @include search-input(transparent, variables.$base-color, white);
+
+}
+
+.main-nav__form-search__btn {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+    background: transparent;
+    outline: none;
+    border-color: transparent;
+    cursor: pointer;
+
+}
+
+.main-nav__search-btn {
+    font-size: 1.25rem;
+    color: white;
+}
+
+
+// --  Nav Links List Toggle Classes --
+.show-links {
+    z-index: 10;
+    padding: 0.5em !important;
+    overflow: visible !important;
+    max-height: fit-content !important;
+}
+
+.hide-links {
+    height: 0;
+    overflow: hidden;
+
+    @include md {
+        height: 100%;
+    }
+}
+
+// --- Nav List ---
+
+.main-nav__list {
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 95%;
+    align-items: start;
+    border-radius: 8px;
+    transition-property: height, padding;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    background: variables.$base-color;
+
+    @include md {
+        background: white;
+        width: fit-content;
+        position: static;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow: visible;
+    }
+
+
+}
+
+.main-nav__list__item {
+    font-family: variables.$ubuntu-font;
+    margin: 0.5rem;
+    cursor: pointer;
+
+    @include md {
+        margin: 0 0.5rem;
+    }
+
+    @include lg {
+        margin: 0.25rem 0.75rem;
+    }
+
+}
+
+.main-nav__link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+
+    @include md {
+        color: variables.$base-color;
+        // font-size: 1.5rem;
+        // font-weight: 600;
+    }
+
+}
+
+
+
+.main-nav__icon {
+    font-size: 1.5rem;
+    position: relative;
+    color: white;
+
+    @include md {
+        color: variables.$base-color;
+    }
+
+}
+.main-nav__user-icon{
+    position: relative;
+}
+
+// -- Nav Dropdown
+.main-nav__dropdown {
+    background: white;
+    border: 1px solid variables.$base-color;
+
+    @include md {
+        background: variables.$base-color;
+        left: -10%;
+    }
+}
+
+.main-nav__dropdown__item {
+    color: variables.$base-color;
+    font-family: variables.$base-font;
+
+    &:hover {
+        color: white;
+        background: variables.$base-color;
+
+        @include md {
+            background: white;
+            color: variables.$base-color;
+        }
+    }
+
+    @include md {
+        color: white;
+    }
+
+}

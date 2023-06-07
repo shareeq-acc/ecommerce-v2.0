@@ -1,0 +1,12 @@
+@use "../base/variables";
+.progress-bar--wrap {
+    background: variables.$light-grey;
+    min-width: 13vw;
+    height: 1.1em;
+    margin-right: 0.5em;
+}
+
+.progress-bar {
+    height: 100%;
+    background: variables.$gold;
+}

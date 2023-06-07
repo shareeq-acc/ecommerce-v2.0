@@ -1,0 +1,40 @@
+// Colors
+// $base-color: #06d7b7;
+// $base-color: #FF7800;
+// $base-color: #403866;
+$base-color: #E90674;
+$gold: #faca51;
+$light-grey: #F4F2F2;
+$dark-purple:#403866;
+$green: #0EC367;
+$faded-grey: #565959;
+$grey: #e6e6e6;
+
+// Fonts
+$logo-font: 'Pacifico', cursive;
+$base-font: 'Quicksand', sans-serif;
+$secondary-font: 'Poppins', sans-serif;
+$highlight-font: 'Raleway', sans-serif;
+$ubuntu-font: 'Ubuntu', sans-serif;
+
+
+// BreakPoints
+$breakpoints: (
+    "sm": 576px,
+    "md": 768px,
+    "lg": 1024px,
+    "xl": 1250px,
+    "2xl": 1500px,
+);
+
+// Radius
+$radius-sm: 7px;
+$radius-md: 15px;
+$radius-full: 50%;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+$shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+$shadow-card: 0 0.1rem 1rem rgb(0 0 0 / 10%);

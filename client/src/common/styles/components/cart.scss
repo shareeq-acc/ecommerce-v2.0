@@ -1,0 +1,115 @@
+@use "../utils/mixins" as *;
+@use "../utils/breakpoint-mixins.scss" as *;
+@use "../base/variables";
+
+.cart--wrapper {
+    position: relative;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.cart-sidebar {
+    @include sidebar-responsive(right);
+    width: 100%;
+
+    @include sm {
+        width: 75%;
+    }
+
+    @include md {
+        width: 27rem;
+    }
+}
+
+.cart__content-wrap {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+.cart__content-padding{
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    @include md {
+        padding-right: 1em;
+        padding-left: 1em;
+    }
+}
+.cart-items-container{
+    margin: 1rem 0;
+    width: 100%;
+    overflow-y: scroll;
+}
+.cart_items_slider{
+    height: 100%;
+}
+.cart-item {
+    position: relative;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    box-shadow: variables.$shadow-sm;
+    display: flex;
+    align-items: center;
+
+    @include sm {
+        padding: 1em 0.5em;
+    }
+}
+
+.cart__img-wrap {
+    margin-right: 5%;
+
+    .cart-item__img {
+        height: 7rem;
+    }
+}
+
+// .card-item__info-wrap {}
+
+.card-item__brand {
+    font-size: 1.1rem;
+
+    .brand-link {
+        color: variables.$base-color;
+    }
+}
+
+.card-item__quantity {
+    margin-left: 1em;
+
+    @include custom-max-w-bp(400px) {
+        display: block;
+        margin-left: 0;
+    }
+}
+
+.card-item__shipping-price {
+    display: block;
+}
+
+
+.card-item__delete-icon {
+    color: variables.$base-color;
+    position: absolute;
+    top: 45%;
+    right: 0%;
+    font-size: 1.25rem;
+    cursor: pointer;
+
+    @include lg() {
+        right: 5%;
+    }
+}
+
+.cart__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+
+    .cart-total {
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,17 @@
+@use "../base/variables";
+
+.ratings--container {
+    display: flex;
+}
+
+.star-icon {
+    cursor: pointer;
+}
+
+.fill-star {
+    color: variables.$gold !important;
+}
+
+.empty-star {
+    color: variables.$light-grey;
+}

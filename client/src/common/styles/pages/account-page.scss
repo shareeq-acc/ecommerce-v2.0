@@ -1,0 +1,301 @@
+@use "../base/variables";
+@use "../utils/mixins" as *;
+@use "../utils/breakpoint-mixins" as *;
+
+.account-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.account__sidebar {
+    @include md {
+        overflow: visible;
+        width: 100%;
+        height: fit-content;
+    }
+}
+
+.account__sidebar--responsive {
+    @include custom-max-w-bp(map-get(variables.$breakpoints, "md")) {
+        @include sidebar-responsive(left);
+    }
+
+    @include sm {
+        width: 40%;
+    }
+}
+
+.account__tabs-wrap {
+    max-width: fit-content;
+
+    @include md {
+        max-width: 100%;
+    }
+}
+
+.acc-page__toggle-icon-wrap {
+    font-size: 1.25rem;
+    cursor: pointer;
+
+    @include md {
+        display: none;
+    }
+}
+
+.acc__tab-list {
+    padding: 1em 0;
+
+    @include md {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.acc__tab-item {
+    position: relative;
+    font-weight: 500;
+    font-size: 1.15rem;
+    cursor: pointer;
+    padding: 0.6em 0.75em;
+    margin: 0.5em 0;
+
+    @include md {
+        margin-right: 1em;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.acc__tab-item--active {
+    background: white;
+    color: variables.$base-color;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background-color: variables.$base-color;
+
+        @include md {
+            top: 100%;
+            width: 100%;
+            height: 3px;
+        }
+    }
+}
+
+.account__tabs-content-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 1em 0 4em 0;
+    margin-top: 1rem;
+}
+
+.account__tab-content-title {
+    text-align: center;
+    margin-bottom: 0.75em;
+}
+
+// Orders Section
+.order-section {
+    width: 99%;
+
+    @include sm {
+        width: fit-content;
+    }
+}
+
+.orders-table--wrap {
+    margin-left: 0;
+
+    @include md {
+        margin-left: 1em;
+    }
+}
+
+.orders-table {
+    position: relative;
+    width: 100%;
+}
+
+.orders-table__top-row {
+    display: none !important;
+    background-color: variables.$base-color !important;
+
+    @include sm {
+        display: table-row !important;
+    }
+
+}
+
+.orders-table__head {
+    color: white !important;
+}
+
+.orders-table__row {
+    background-color: variables.$grey;
+    margin-bottom: 1rem;
+}
+
+.orders-table__head {
+    font-size: 1.1rem;
+    color: variables.$base-color;
+}
+
+.orders-table__data {
+    text-align: right;
+
+    @include sm {
+        text-align: center;
+    }
+}
+
+.orders-table__head,
+.orders-table__data {
+    padding: 0.4em 0.5em;
+
+    &::before {
+        @include custom-max-w-bp (map-get(variables.$breakpoints, "sm")) {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            padding-left: 0.5em;
+            // color: variables.$base-color;
+            font-weight: 600;
+        }
+    }
+}
+
+.orders-table__row,
+.orders-table__data {
+    @include custom-max-w-bp (map-get(variables.$breakpoints, "sm")) {
+        display: block;
+        width: 98%;
+
+    }
+}
+
+.no-orders-message {
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 0.5em;
+}
+
+
+// User Account Details Tab
+.user-account-details {
+    font-size: 1.1rem;
+}
+
+.acc-details__field {
+    margin-bottom: 1em;
+    width: 18rem;
+
+    @include md {
+        width: 25rem;
+    }
+
+    .acc-details__value {
+        margin-top: 5px;
+        background-color: variables.$light-grey;
+
+        .value {
+            color: grey;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: grey;
+            padding: 0.3em 4%;
+        }
+
+        .field-icon {
+            margin-left: 0.5em;
+            cursor: pointer;
+        }
+    }
+
+}
+
+
+// Tab 3
+.review-order__tabs-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+
+    @include md {
+        margin-top: -2em;
+    }
+}
+
+.review-orders__tabs {
+    background: white;
+    color: variables.$base-color;
+    border: 1px solid variables.$base-color;
+    padding: 0.35em 1em;
+    margin-right: 0.5em;
+    @include sm {
+        padding: 0.35em 2em;
+        margin-right: 1em;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.review-orders__active-tab {
+    background: variables.$base-color;
+    color: white;
+    border: 1px solid transparent;
+}
+
+.review-card__title {
+    margin-bottom: 0.75em;
+    max-width: 45ch;
+}
+
+.order-reviews__container {
+    .order-review__card {
+        display: flex;
+        margin: 0.75em 0;
+    }
+}
+
+.order-review__card__img-wrap {
+    margin-right: 0.75em;
+
+    .review-card__img {
+        width: 6rem;
+    }
+
+}
+
+.review-card__title {
+    max-width: 30ch;
+}
+
+.review-card__info {
+    display: flex;
+    flex-direction: column;
+
+    &>* {
+        margin-bottom: 0.25em
+    }
+}
+
+.review-card__link {
+    max-width: fit-content;
+    color: variables.$base-color;
+    font-size: 1rem;
+    font-weight: 600;
+
+}

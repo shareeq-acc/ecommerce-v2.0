@@ -1,0 +1,14 @@
+@use "../base/variables";
+
+.btn {
+    color: white;
+    background: variables.$base-color;
+    cursor: pointer;
+    padding: 0.35em 2em;
+    border-radius: 5px;
+    border-color: transparent;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: variables.$base-font;
+}

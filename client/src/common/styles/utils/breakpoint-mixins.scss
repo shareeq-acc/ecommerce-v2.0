@@ -1,0 +1,44 @@
+@use "../base/variables.scss" as *;
+
+
+@mixin sm {
+    @media screen and (min-width: map-get($breakpoints, "sm")) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media screen and (min-width: map-get($breakpoints, "md")) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media screen and (min-width: map-get($breakpoints, "lg")) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media screen and (min-width: map-get($breakpoints, "xl")) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @media screen and (min-width: map-get($breakpoints, "2xl")) {
+        @content;
+    }
+}
+
+@mixin custom-max-w-bp($max-width: 0) {
+    @media screen and (max-width: $max-width) {
+        @content;
+    }
+}
+
+@mixin custom-min-w-bp($min-width: 0) {
+    @media screen and (min-width: $min-width) {
+        @content;
+    }
+}

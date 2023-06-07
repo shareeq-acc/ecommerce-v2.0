@@ -1,0 +1,77 @@
+@use "../utils/mixins" as *;
+@use "../utils/breakpoint-mixins" as *;
+@use "../base/variables";
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // transform: translateY(34%);
+
+}
+
+
+.form__input {
+    width: 100%;
+    padding: 0.4rem 0.75rem;
+    padding-left: 1.75rem;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    border-bottom: 1.5px solid grey;
+
+    font-family: variables.$base-font;
+
+    &:focus-visible {
+        border-bottom: 1.5px solid variables.$base-color;
+        outline: none;
+    }
+
+    @include sm {
+        font-size: 0.9rem;
+    }
+}
+
+.input__error-message {
+    color: variables.$base-color;
+    font-size: 0.9rem;
+    margin-left: 3px;
+}
+
+.input--wrap,
+.input-field {
+    width: 100%;
+    position: relative;
+
+}
+
+.input__icon {
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.form__title {
+    @include sm {
+        font-size: 1.75rem;
+    }
+}
+
+.form--group {
+    margin: 0.4em 0;
+    // margin-bottom: 0.5e1m;
+    width: 100%;
+}
+
+.form-btn {
+    margin-top: 0.5em;
+}
+
+
+.form-text-area {
+    resize: none;
+    font-family: variables.$base-font;
+    font-weight: 500;
+}

@@ -1,0 +1,93 @@
+@use "../base/variables";
+@use "../utils/breakpoint-mixins" as *;
+
+
+.form__card {
+    display: flex;
+    justify-content: center;
+
+    @include md {
+        margin-top: 2rem;
+    }
+}
+
+.double-input-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 0.4em;
+
+    @include md {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    >.input-wrap {
+        flex-basis: 49%;
+    }
+
+}
+
+.double-input {
+    margin-bottom: 0.4em;
+
+    @include md {
+        margin-bottom: 0;
+    }
+}
+
+.auth-form {
+    width: 100%;
+    padding: 1em;
+    box-shadow: variables.$shadow-lg;
+    border-radius: 15px;
+
+    @include sm {
+        width: 70%;
+    }
+
+    @include md {
+        width: 65%;
+    }
+
+    @include lg {
+        width: 55%;
+    }
+
+    @include xl {
+        width: 45%;
+    }
+}
+
+.auth-form__toggle-wrap {
+    display: flex;
+    margin-bottom: 1em;
+    width: 50%;
+    justify-content: center;
+
+    .active {
+        background: variables.$base-color;
+        color: white;
+    }
+}
+
+.auth-form_toggle-tab {
+    flex-basis: 50%;
+    padding: 0.4em 0.8em;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+
+    &:nth-child(1) {
+        margin-right: -3%;
+    }
+
+    &:nth-child(2) {
+        margin-left: -3%;
+    }
+}
+.form-btn{
+    border-radius: 5px !important;
+    padding: 0.35em 3em !important;
+}
