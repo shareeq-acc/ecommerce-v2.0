@@ -237,8 +237,13 @@ export const changeReview = async (req, res, next) => {
 
 export const getProductReviews = async (req, res, next) => {
   const { productSlug } = req.params;
-  const start = req.query.start || 0
-  const order = req.query.order || undefined
+  const start = !isNaN(req.query.start)
+    ? parseInt(req.query.start)
+      ? parseInt(req.query.start)
+      : 0
+    : 0;
+  // const start = req.query.start || 0
+  const order = req.query.order || undefined;
   const isExistingProduct = await findProduct("slug", productSlug);
   if (!isExistingProduct) {
     return next(

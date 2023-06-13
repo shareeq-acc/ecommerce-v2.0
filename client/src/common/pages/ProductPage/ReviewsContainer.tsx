@@ -20,15 +20,17 @@ const ReviewsContainer = () => {
   if (id == undefined) {
     id = "";
   }
-  const { data, error, isLoading } = useGetProductReviewsQuery({
+  const { data, error, isLoading, isSuccess, refetch } = useGetProductReviewsQuery({
     slug: id,
     start,
     sort: filterType,
   });
-  console.log(data)
 
   const changeFilterValue = (value: FilterDropdown) => {
-    setFilterType(value);
+    if (value !== filterType) {
+      setFilterType(value);
+      refetch()
+    }
   };
   useEffect(() => {
     setStart(0);
@@ -36,14 +38,15 @@ const ReviewsContainer = () => {
 
   return (
     <div className="reviews-container section--margin">
-      {data?.success && (
+      {isSuccess && (
         <ReviewsSummary
           totalRatings={data?.totalRatings}
           avgRatings={data.avgRating}
+          ratings={data.ratings}
         />
       )}
       <div className="reviews__filter-wrap">
-        <span className="reviews__filter__heading-text">Product Reviews</span>
+        {isSuccess && <span className="reviews__filter__heading-text">Product Reviews ({data?.totalRatings})</span>}
         <div
           className="reviews__sort-wrap"
           onClick={() => setShowDropdown(showDropdown ? false : true)}
@@ -81,11 +84,12 @@ const ReviewsContainer = () => {
           )}
         </div>
       </div>
-      <div className="reviews__wrap">
+      {isSuccess && <div className="reviews__wrap">
         {data?.reviews.map((review, index) => (
-          <Review key={index} />
+          <Review key={index} data={review}
+          />
         ))}
-      </div>
+      </div>}
     </div>
   );
 };

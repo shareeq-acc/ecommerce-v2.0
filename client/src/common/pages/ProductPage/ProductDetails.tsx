@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import StarRatings from "../../components/Elements/StarRatings/StarRatings";
 import Button from "../../components/Elements/Button/Button";
@@ -21,11 +21,14 @@ const ProductDetails = ({
     id = "";
   }
   const { data, error, isLoading } = useGetSingleProductQuery(id);
-  
-  if (data?.product) {
-    setDescription(data.product.description);
-    setRatings(data.product.rating);
-  }
+
+  useEffect(() => {
+    if (data?.product) {
+      setDescription(data.product.description);
+      setRatings(data.product.rating);
+    }
+  }, [data])
+
 
   const handleQuantity = (action: string) => {
     if (action === "inc") {
@@ -59,11 +62,12 @@ const ProductDetails = ({
               />
             </div>
             <div className="product-images--container">
-              {data.product.images.map((image) => (
+              {data.product.images.map((image, index) => (
                 <img
                   src={image.url}
                   alt={image.name}
                   className="product-img--array"
+                  key={index}
                 />
               ))}
             </div>

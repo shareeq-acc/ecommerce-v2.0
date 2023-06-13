@@ -1,13 +1,12 @@
 import ProgressBar from "../../components/Elements/ProgressBar/ProgressBar";
 import StarRatings from "../../components/Elements/StarRatings/StarRatings";
-import { ProductRatingsType } from "../../types/productTypes";
-const data = [10, 6, 2, 1, 2];
 
 type ProductSummaryProps = {
   totalRatings: number;
   avgRatings: number;
+  ratings:number[]
 };
-const ReviewsSummary = ({ totalRatings, avgRatings }: ProductSummaryProps) => {
+const ReviewsSummary = ({ totalRatings, avgRatings, ratings}: ProductSummaryProps) => {
   return (
     <div className="reviews-summary--wrap">
       <div className="review__overview">
@@ -23,15 +22,15 @@ const ReviewsSummary = ({ totalRatings, avgRatings }: ProductSummaryProps) => {
         }`}</div>
       </div>
       <div className="rating__details">
-        {[...Array(5)].map((star, index) => {
+        {ratings.map((star, index) => {
           return (
             <div
               key={index}
               className="rating__details__individual-review-data"
             >
               <StarRatings rating={5 - index} />
-              <ProgressBar total={21} current={data[index]} />
-              {`(${data[index]})`}
+              <ProgressBar total={totalRatings} current={star} />
+              {`(${star})`}
             </div>
           );
         })}

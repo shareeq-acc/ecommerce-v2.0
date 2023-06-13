@@ -26,9 +26,10 @@ export const fetchProductReviews = async (productId, order, start) => {
       .equals("Approved")
       .sort({ rating: order === "low-high" ? 1 : -1 })
       .skip(start)
-      .limit(limit);
+      .limit(limit)
+      .populate("user", "fname lname");
     return {
-      productReviews:reviews,
+      productReviews: reviews,
       more,
       count,
     };
@@ -38,10 +39,11 @@ export const fetchProductReviews = async (productId, order, start) => {
       .equals("Approved")
       .sort({ createdAt: -1 })
       .skip(start)
-      .limit(limit);
+      .limit(limit)
+      .populate("user", "fname lname");
 
     return {
-      productReviews:reviews,
+      productReviews: reviews,
       more,
       count,
     };

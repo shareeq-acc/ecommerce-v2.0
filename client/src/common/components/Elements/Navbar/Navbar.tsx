@@ -18,7 +18,7 @@ type NavbarProps = {
 const Navbar = ({ setShowCart, showCart }: NavbarProps) => {
   const [showNavLinks, setShowNavLinks] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [userLogin, setUserLogin] = useState(true);
+  const [userLogin, setUserLogin] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchValue, setSearchValue] = useState<string>("");
   const navigate = useNavigate();
