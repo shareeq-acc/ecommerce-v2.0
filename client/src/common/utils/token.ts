@@ -1,0 +1,1 @@
+export const setToken = (name: string, value: string): void => localStorage.setItem(name, value)

@@ -12,6 +12,10 @@ export type ReviewsType = {
   product: string; //id
   createdAt: Date;
   updatedAt?: Date;
+  user: {
+    fname: string,
+    lname: string
+  }
 };
 export type ProductReviewsType = {
   reviews: ReviewsType[];
@@ -24,5 +28,5 @@ export type ProductReviewsType = {
 export type ArgReviewsType = {
   start: number;
   sort: FilterDropdown;
-  slug:string
+  slug: string
 };

@@ -1,22 +1,26 @@
+import { ReviewsType } from "../../../types/reviews";
+import { formatDate } from "../../../utils/date";
 import StarRatings from "../StarRatings/StarRatings";
 
-const Review = () => {
+type ReviewProps = {
+  data:ReviewsType
+}
+const Review = ({ data }: ReviewProps) => {
   return (
     <article className="review">
       <div className="review__header">
         <div className="review__short-summary">
-          <StarRatings rating={4} />
-          <h3 className="review__title">Works Great!</h3>
+          <StarRatings rating={data.rating} />
+          <h3 className="review__title">{data.title}</h3>
         </div>
         <div className="review__details">
-          <span className="review__details__author">By Reviewer Name</span>
-          <span className="review__details__date">10 October 2022</span>
+          <span className="review__details__author">{`By ${data.user.fname} ${data.user.lname}`}</span>
+          <span className="review__details__date">{formatDate(data.createdAt)}</span>
         </div>
-        <span className="review__recommend">Recommended : Yes</span>
+        <span className="review__recommend">Recommended : {data.isRecommended?"Yes":"No"}</span>
       </div>
       <p className="review__description">
-        This is an awesome product. I am amazed by the quality. However I think
-        it's a bit overpriced and there are better options available.
+        {data.review}
       </p>
     </article>
   );

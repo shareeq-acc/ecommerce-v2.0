@@ -39,7 +39,7 @@ const InputField = ({
           </span>
         )}
       </div>
-      {error && <p className="input__error-message">Error Message</p>}
+      {error && <p className="input__error-message">{error}</p>}
     </div>
   );
 };
